@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+	
+	<head>
+		<meta charset="UTF-8">
+		<title>3C TwitCam</title>
+		<style>
+		#monitor{margin: -10px}
+		</style>
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+		<script type="text/javascript" src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+		<script type="text/javascript" src="js/cam_frame.js"></script>
+	</head>
+	
+	<body>
+	
+	<div data-role="page" id="home">
+		<!-- フレーム・スタンプ用パネル -->
+		<div data-role="panel" id="panel_frame_stamp" data-display="overlay">
+			<div class="ui-grid-c">
+				<button id="frame1" data-inline="true">F1</button>
+				<button id="frame2" data-inline="true">F2</button>
+				<button id="frame3" data-inline="true">F3</button>
+				<button id="frame4" data-inline="true">F4</button>
+				<button id="frame5" data-inline="true">F0</button>
+			</div>
+			<div class="ui-grid-c">
+				<button id="stamp1" data-inline="true">S1</button>
+				<button id="stamp2" data-inline="true">S2</button>
+				<button id="stamp3" data-inline="true">S3</button>
+				<button id="stamp4" data-inline="true">S4</button>
+				<button id="stamp5" data-inline="true">S5</button>
+				<button id="stamp6" data-inline="true">S6</button>
+				<button id="stamp7" data-inline="true">S7</button>
+				<button id="stamp8" data-inline="true">S8</button>
+			</div>
+		</div>
+
+	<div data-role="header" data-theme="b">
+		<h1>3C TwitCam!</h1>
+		<a id="introduction" data-icon="info" class="ui-btn-left">使い方</a>
+		<a href="#panel_frame_stamp" data-icon="arrow-r" class="ui-btn-right">フレーム・スタンプ</a>
+	</div>
+
+	<!-- 映像とフレーム選択 -->
+	<div>
+		<div>
+			<!-- カメラから撮ってきた映像描写 -->
+			<div id="video_in" style="position: absolute; left: 20px; top: 70px;">
+				<video id="monitor" autoplay style="z-index: 0"></video>
+			</div>
+			
+			<!-- 文字のテキストボックスと各種操作 -->
+			<div style="position: absolute; left: 665px; top:40px">
+				<form name="dos">
+					<input id="mozi1" type="text" name="sdo1">
+					<input id="mozi2" type="text" name="sdo2">
+				</form>
+				<button id="decide" data-icon="check" data-iconpos="top" data-theme="e">　　　　　　撮影　　　　　　</button>
+				<div class="ui-grid-a">
+					<div class="ui-block-a"><button id="syokyo" data-icon="refresh" data-iconpos="top" data-theme="a">削除</button></div>
+					<div class="ui-block-b"><button id="mozimozi" data-icon="plus" data-iconpos="top" data-theme="a">文字</button></div>	
+				</div>
+				<form name="dos2">
+					<input id="mozi3" type="text" name="twemo">
+				</form>
+				<button id="encode" data-icon="star" data-iconpos="top" data-theme="e">☆Tweet!!☆</button>
+				<select id="videoSource"　data-theme="b">
+					<option value="切り替え">カメラ選択</option>
+				</select>			
+			</div>
+		</div>
+	
+		<!-- canvasたち -->
+		<div id="canvases">
+			<canvas id ="frame" width="640" height="480" style="position: absolute; left: 10px; top: 60px; z-index: 2"></canvas>
+			<canvas id ="combine" width="640" height="480" style="position: absolute; left: 10px; top: 60px; z-index: 1"></canvas>
+		</div>
+	
+	</div>
+	
+	</body>
+</html>
